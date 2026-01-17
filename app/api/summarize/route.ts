@@ -5,7 +5,7 @@ import { PROMPTS } from "@/lib/prompts";
 
 export const maxDuration = 60;
 export const dynamic = 'force-dynamic';
-export const runtime = 'edge'; // Cloudflare Edge Compatible!
+// Note: Edge runtime removed for Netlify compatibility
 
 export async function POST(req: NextRequest) {
     try {

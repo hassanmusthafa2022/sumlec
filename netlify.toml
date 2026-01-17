@@ -2,5 +2,10 @@
   command = "npm run build"
   publish = ".next"
 
+[functions]
+  # Extend timeout for AI processing (max 26s on Pro, 10s on Free)
+  # Note: Free tier may timeout on long videos
+  node_bundler = "esbuild"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
