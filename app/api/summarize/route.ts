@@ -5,7 +5,7 @@ import { PROMPTS } from "@/lib/prompts";
 
 export const maxDuration = 60;
 export const dynamic = 'force-dynamic';
-export const runtime = 'edge'; // Vercel Edge has better timeout support
+// Using Node.js runtime for Firebase SDK compatibility
 
 export async function POST(req: NextRequest) {
     try {
