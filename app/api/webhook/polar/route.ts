@@ -13,7 +13,12 @@ export async function POST(req: NextRequest) {
 
     if (!signature) {
         console.error("Missing polar-webhook-signature header");
-        return NextResponse.json({ error: "Missing Signature Header" }, { status: 400 });
+        const headerKeys = [];
+        headersList.forEach((_, key) => headerKeys.push(key));
+        return NextResponse.json({
+            error: "Missing Signature Header",
+            receivedHeaders: headerKeys.join(", ")
+        }, { status: 400 });
     }
 
     if (!secret) {
