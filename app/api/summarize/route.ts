@@ -5,7 +5,7 @@ import { PROMPTS } from "@/lib/prompts";
 
 export const maxDuration = 60;
 export const dynamic = 'force-dynamic';
-// Note: Edge runtime removed for Netlify compatibility
+export const runtime = 'edge'; // Vercel Edge has better timeout support
 
 export async function POST(req: NextRequest) {
     try {
