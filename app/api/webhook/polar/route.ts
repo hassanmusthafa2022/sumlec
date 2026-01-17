@@ -1,24 +1,41 @@
 import { NextRequest, NextResponse } from "next/server";
-import { polar } from "@/lib/polar";
 import { addCredits, updateUserPlan, updateUserSubscription } from "@/lib/db";
 import { headers } from "next/headers";
-
 import { validateEvent } from "@polar-sh/sdk/webhooks";
 
 export async function POST(req: NextRequest) {
     const rawBody = await req.text();
     const headersList = await headers();
-    // SKIP SIGNATURE VERIFICATION FOR DEBUGGING
-    // const signature = headersList.get("polar-webhook-signature");
-    // const secret = process.env.POLAR_WEBHOOK_SECRET;
 
-    console.warn("⚠️ BYPASSING WEBHOOK SIGNATURE VERIFICATION");
-    const payload = JSON.parse(rawBody);
+    // CORRECT HEADER NAME: "polar-signature" (NOT "polar-webhook-signature")
+    const signature = headersList.get("polar-signature") || headersList.get("webhook-signature");
+    const secret = process.env.POLAR_WEBHOOK_SECRET;
+
+    if (!signature) {
+        console.error("Missing signature header");
+        return NextResponse.json({ error: "Missing Signature Header" }, { status: 400 });
+    }
+
+    if (!secret) {
+        console.error("Missing POLAR_WEBHOOK_SECRET env var");
+        return NextResponse.json({ error: "Missing Webhook Secret" }, { status: 400 });
+    }
+
+    // Verify signature
+    let payload: any;
+    try {
+        const headersObj: Record<string, string> = {};
+        headersList.forEach((value, key) => { headersObj[key] = value; });
+        payload = validateEvent(rawBody, headersObj, secret);
+    } catch (e) {
+        console.error("Webhook signature verification failed", e);
+        return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+    }
 
     const eventType = payload.type;
     const data = payload.data;
 
-    console.log(`Received Polar Webhook: ${eventType}`, data);
+    console.log(`Received Polar Webhook: ${eventType}`);
 
     try {
         switch (eventType) {
@@ -50,15 +67,10 @@ export async function POST(req: NextRequest) {
                 break;
             }
 
-            case "order.updated": // Handle updated too!
+            case "order.updated":
             case "order.created": {
                 const userId = data.metadata?.userId;
                 const credits = parseInt(data.metadata?.credits || "0");
-
-                // Only process if PAID
-                // (order.created might be unpaid? check status if available, but usually payload implies success in webhook if type is created?)
-                // Actually, check status.
-                // data.status might be 'paid'
 
                 if (userId && credits > 0 && !data.subscription_id) {
                     console.log(`Adding ${credits} credits to user ${userId}`);
