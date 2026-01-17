@@ -220,11 +220,7 @@ export default function PricingPage() {
                                         }
                                     } catch (e: any) {
                                         console.error(e);
-                                        // Fallback for Network/Other errors or 404
-                                        const { updateUserPlan } = await import("@/lib/db");
-                                        await updateUserPlan(user!.uid, 'free');
-                                        alert("Plan cancelled (Client-side fallback).");
-                                        window.location.reload();
+                                        alert("Failed to cancel subscription.");
                                     } finally {
                                         setProcessing(null);
                                     }
