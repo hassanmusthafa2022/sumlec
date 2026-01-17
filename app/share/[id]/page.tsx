@@ -1,4 +1,5 @@
 "use client";
+export const runtime = 'edge';
 
 import React, { useEffect, useState } from 'react';
 import { getSharedSummary, SummaryData } from '@/lib/db';
