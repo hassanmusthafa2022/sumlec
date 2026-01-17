@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+export const runtime = 'edge';
 import { getUserProfile, updateUserPlan, updateUserSubscription } from "@/lib/db";
 import { polar } from "@/lib/polar";
 

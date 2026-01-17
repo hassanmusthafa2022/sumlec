@@ -10,6 +10,7 @@ import { promisify } from "util";
 // Increase timeout for long generations
 export const maxDuration = 60; // 60 seconds (Hobby plan limit) or higher on Pro
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 const unlink = promisify(fs.unlink);
 
