@@ -68,16 +68,20 @@ export async function POST(req: NextRequest) {
 
         try {
             // 3. Process YouTube URL (Directly with Gemini!)
+            // 3. Process YouTube URL
             if (url) {
-                console.log("Processing YouTube URL directly:", url);
-                videoTitle = "YouTube Video"; // Gemini 2.5 can infer title, but we don't get it back easily in response metadata yet.
+                console.log("Processing YouTube URL:", url);
 
-                contentParts.push({
-                    fileData: {
-                        mimeType: "video/mp4",
-                        fileUri: url
-                    }
-                });
+                try {
+                    // Try Direct Gemini Method First (Fastest)
+                    console.log("Attempting Direct Gemini Access...");
+                    contentParts.push({
+                        fileData: { mimeType: "video/mp4", fileUri: url }
+                    });
+                    videoTitle = "YouTube Video";
+                } catch (directError) {
+                    console.warn("Direct access failed, falling back to yt-dlp:", directError);
+                }
             }
 
             // 4. Process Uploaded Files (Inline Base64 for Edge)
