@@ -94,19 +94,8 @@ export default function Home() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        console.warn("Stripe fallback");
-        if (confirm(`Stripe not configured. Mock Purchase for ${plan.toUpperCase()}?`)) {
-          const { mockProcessPayment } = await import("@/lib/stripe-dummy");
-          const { addCredits, updateUserPlan } = await import("@/lib/db");
-
-          await mockProcessPayment(user.uid, priceId);
-          await addCredits(user.uid, credits);
-
-          if (updateUserPlan) await updateUserPlan(user.uid, plan);
-
-          alert(`Mock Success! ${credits} Credits added & Plan updated to ${plan}.`);
-          window.location.href = "/dashboard";
-        }
+        console.error("Checkout URL missing");
+        alert("Payment initiation failed. Please try again.");
       }
 
     } catch (e) {
