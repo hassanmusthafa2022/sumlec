@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+export const runtime = 'edge';
 import { db } from "@/lib/firebase"; // Direct import to use Firebase functions
 import { doc, updateDoc, increment } from "firebase/firestore";
 
