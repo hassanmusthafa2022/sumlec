@@ -233,44 +233,7 @@ export default function PricingPage() {
                     </div>
                 )}
 
-                {/* DEV TOOL: Simulate Webhook */}
-                <div className="max-w-md mx-auto mt-12 p-4 border border-yellow-500/20 bg-yellow-500/5 rounded-lg text-center">
-                    <p className="text-yellow-200 text-xs mb-2">DEV: Webhook won't work on localhost without a tunnel. Use this to test the "Success" state.</p>
-                    <div className="flex gap-2 justify-center">
-                        <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-yellow-500 text-yellow-500 hover:bg-yellow-500/10"
-                            onClick={async () => {
-                                if (!user) return alert("Login first");
-                                await fetch('/api/test-webhook', {
-                                    method: 'POST',
-                                    body: JSON.stringify({ userId: user.uid, plan: 'pro', credits: 25 })
-                                });
-                                alert("Simulated Pro Webhook! Reloading...");
-                                window.location.reload();
-                            }}
-                        >
-                            Force Upgrade (Pro)
-                        </Button>
-                        <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-yellow-500 text-yellow-500 hover:bg-yellow-500/10"
-                            onClick={async () => {
-                                if (!user) return alert("Login first");
-                                await fetch('/api/test-webhook', {
-                                    method: 'POST',
-                                    body: JSON.stringify({ userId: user.uid, plan: 'premium', credits: 170 })
-                                });
-                                alert("Simulated Premium Webhook! Reloading...");
-                                window.location.reload();
-                            }}
-                        >
-                            Force Upgrade (Prem)
-                        </Button>
-                    </div>
-                </div>
+
             </section>
         </main>
     );

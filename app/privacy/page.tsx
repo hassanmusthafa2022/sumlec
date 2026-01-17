@@ -57,7 +57,7 @@ export default function PrivacyPage() {
                         <p className="text-slate-300">We use the following third-party services:</p>
                         <ul className="list-disc list-inside text-slate-300 space-y-2">
                             <li><strong>Google Firebase:</strong> Authentication and data storage</li>
-                            <li><strong>Google Gemini AI:</strong> Content analysis and summarization</li>
+                            <li><strong>Third-party AI Services:</strong> Content analysis and summarization</li>
                             <li><strong>Stripe:</strong> Payment processing</li>
                         </ul>
                     </section>

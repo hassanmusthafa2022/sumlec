@@ -6,7 +6,7 @@ const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SummarizeLecture.ai - Master Your Lectures in Seconds with AI",
-  description: "Turn any YouTube lecture or video into structured study notes, cheat sheets, and summaries instantly. Powered by Gemini 2.5 AI. Perfect for students.",
+  description: "Turn any YouTube lecture or video into structured study notes, cheat sheets, and summaries instantly. Powered by Advanced AI. Perfect for students.",
   generator: "Next.js",
   applicationName: "SummarizeLecture.ai",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "exam preparation",
     "student tools",
     "AI education",
-    "Gemini AI"
+    "AI summarizer"
   ],
   authors: [{ name: "SummarizeLecture Team" }],
   creator: "SummarizeLecture Team",

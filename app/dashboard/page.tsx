@@ -512,52 +512,6 @@ export default function Dashboard() {
                 )}
             </div>
 
-            {/* Developer Testing Tools */}
-            <div className="mt-12 border-t border-slate-800 pt-8 pb-8">
-                <h3 className="text-xl font-bold text-slate-400 mb-4">🛠️ Developer Testing Zone</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Card className="bg-red-900/10 border-red-900/30">
-                        <CardHeader>
-                            <CardTitle className="text-red-400">Subscription Controls</CardTitle>
-                            <CardDescription className="text-slate-400">Test cancellation flow (Reverts to Free Plan)</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Button
-                                variant="destructive"
-                                onClick={handleCancelSubscription}
-                                disabled={testingAction}
-                                className="w-full bg-red-900/50 hover:bg-red-900 text-red-200 border border-red-800"
-                            >
-                                {testingAction ? "Processing..." : "Cancel Subscription"}
-                            </Button>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-orange-900/10 border-orange-900/30">
-                        <CardHeader>
-                            <CardTitle className="text-orange-400">Credit Controls</CardTitle>
-                            <CardDescription className="text-slate-400">Test credit consumption/spending</CardDescription>
-                        </CardHeader>
-                        <CardContent className="flex gap-4">
-                            <input
-                                type="number"
-                                value={reduceAmount}
-                                onChange={(e) => setReduceAmount(e.target.value)}
-                                className="bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white w-24"
-                                min="1"
-                            />
-                            <Button
-                                variant="outline"
-                                onClick={handleReduceCredits}
-                                disabled={testingAction}
-                                className="flex-1 border-orange-500/50 text-orange-400 hover:bg-orange-900/20 hover:text-orange-300"
-                            >
-                                {testingAction ? "..." : "Reduce Credits"}
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </div>
-            </div>
         </main >
     );
 }

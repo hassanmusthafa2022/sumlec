@@ -31,7 +31,7 @@ export default function TermsPage() {
                         <h2 className="text-2xl font-semibold text-white">2. Description of Service</h2>
                         <p className="text-slate-300">
                             SummarizeLecture.ai provides an AI-powered service that generates summaries, notes, and study materials
-                            from YouTube videos and uploaded media files. The service uses Google Gemini AI for content analysis.
+                            from YouTube videos and uploaded media files. The service uses AI-powered analysis for content processing.
                         </p>
                     </section>
 

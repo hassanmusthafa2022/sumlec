@@ -138,7 +138,7 @@ export default function Home() {
             Master Your Lectures in <span className="text-gradient">Seconds</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto">
-            Turn any YouTube video or lecture recording into structured notes, cheat sheets, and summaries instantly with Gemini 2.5 AI.
+            Turn any YouTube video or lecture recording into structured notes, cheat sheets, and summaries instantly with our Advanced AI.
           </p>
 
           <Generator
@@ -172,7 +172,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { icon: Play, title: "Paste URL", desc: "Simply paste a YouTube link or upload your lecture video file." },
-              { icon: Zap, title: "AI Analysis", desc: "Gemini 2.5 Flash transcribes and analyzes key concepts in seconds." },
+              { icon: Zap, title: "AI Analysis", desc: "Our AI engine transcribes and analyzes key concepts in seconds." },
               { icon: FileText, title: "Get Notes", desc: "Receive formatted summaries, cheat sheets, and quizzes instantly." }
             ].map((feature, i) => (
               <Card key={i} className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors">
