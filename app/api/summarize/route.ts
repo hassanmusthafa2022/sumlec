@@ -133,7 +133,7 @@ export async function POST(req: NextRequest) {
             }
 
             // 5. Build Prompt
-            let prompt = PROMPTS[mode] || PROMPTS.summary;
+            let prompt = PROMPTS[mode as keyof typeof PROMPTS] || PROMPTS.summary;
             if (outputFormat === 'slides') prompt = PROMPTS.slides;
             else if (outputFormat === 'flashcards') prompt = PROMPTS.flashcards;
             else if (outputFormat === 'quiz') prompt = PROMPTS.quiz;
