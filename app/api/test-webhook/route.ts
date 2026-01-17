@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-export const runtime = 'edge';
 import { addCredits, updateUserPlan } from "@/lib/db";
 
 export async function POST(req: NextRequest) {

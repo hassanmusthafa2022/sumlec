@@ -1,6 +1,5 @@
 import { polar } from "@/lib/polar";
-export const runtime = 'edge';
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: Request) {
     try {
