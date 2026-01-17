@@ -13,18 +13,24 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-let app: any;
-let auth: any;
-let db: any;
-let storage: any;
+let app: any = null;
+let auth: any = null;
+let db: any = null;
+let storage: any = null;
 
-if (typeof window === 'undefined' && !process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
-  console.warn("Firebase not initialized (missing keys during build)");
+const isBuildPhase = typeof window === 'undefined' && (!process.env.NEXT_PUBLIC_FIREBASE_API_KEY || process.env.NEXT_PUBLIC_FIREBASE_API_KEY.length === 0);
+
+if (isBuildPhase) {
+  console.warn("⚠️ Build phase detected & Keys missing. Skipping Firebase Init.");
 } else {
-  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-  auth = getAuth(app);
-  db = getFirestore(app);
-  storage = getStorage(app);
+  try {
+    app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+    auth = getAuth(app);
+    db = getFirestore(app);
+    storage = getStorage(app);
+  } catch (e) {
+    console.error("Firebase Init Failed:", e);
+  }
 }
 
 export { app, auth, db, storage };
