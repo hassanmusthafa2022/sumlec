@@ -23,6 +23,7 @@ const ensureYtDlp = async () => {
 };
 
 export async function POST(req: NextRequest) {
+    console.log("Summarize API v2.1 (Robust Fallback) Hit");
     let tempFilePath = ""; // For cleanup
 
     try {
