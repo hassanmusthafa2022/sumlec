@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { NextRequest, NextResponse } from "next/server";
 import { polar } from "@/lib/polar";
 import { addCredits, updateUserPlan, updateUserSubscription } from "@/lib/db";
