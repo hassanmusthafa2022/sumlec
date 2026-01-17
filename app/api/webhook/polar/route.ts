@@ -11,8 +11,14 @@ export async function POST(req: NextRequest) {
     const signature = headersList.get("polar-webhook-signature");
     const secret = process.env.POLAR_WEBHOOK_SECRET;
 
-    if (!signature || !secret) {
-        return NextResponse.json({ error: "Missing signature or secret" }, { status: 400 });
+    if (!signature) {
+        console.error("Missing polar-webhook-signature header");
+        return NextResponse.json({ error: "Missing Signature Header" }, { status: 400 });
+    }
+
+    if (!secret) {
+        console.error("Missing POLAR_WEBHOOK_SECRET env var");
+        return NextResponse.json({ error: "Missing Webhook Secret Config" }, { status: 400 });
     }
 
     // Verify signature
