@@ -111,7 +111,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="w-full max-w-7xl mx-auto p-6 flex justify-between items-center z-10">
         <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-          SummarizeLecture.ai
+          SummarizeLectures
         </div>
         <div className="space-x-4 flex items-center">
           <Link href="/pricing">
@@ -247,7 +247,7 @@ export default function Home() {
           <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
-        <p>© 2026 SummarizeLecture.ai. All rights reserved.</p>
+        <p>© 2026 SummarizeLectures. All rights reserved.</p>
       </footer>
     </main>
   );

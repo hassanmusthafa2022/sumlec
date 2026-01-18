@@ -5,10 +5,10 @@ import "./globals.css";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SummarizeLecture.ai - Master Your Lectures in Seconds with AI",
+  title: "SummarizeLectures - Master Your Lectures in Seconds with AI",
   description: "Turn any YouTube lecture or video into structured study notes, cheat sheets, and summaries instantly. Powered by Advanced AI. Perfect for students.",
   generator: "Next.js",
-  applicationName: "SummarizeLecture.ai",
+  applicationName: "SummarizeLectures",
   keywords: [
     "AI study notes",
     "summarize lecture",
@@ -21,28 +21,28 @@ export const metadata: Metadata = {
     "AI education",
     "AI summarizer"
   ],
-  authors: [{ name: "SummarizeLecture Team" }],
-  creator: "SummarizeLecture Team",
-  metadataBase: new URL("https://summarizelecture.ai"),
+  authors: [{ name: "SummarizeLectures Team" }],
+  creator: "SummarizeLectures Team",
+  metadataBase: new URL("https://summarizelectures.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://summarizelecture.ai",
-    siteName: "SummarizeLecture.ai",
-    title: "SummarizeLecture.ai - Master Your Lectures in Seconds",
+    url: "https://summarizelectures.com",
+    siteName: "SummarizeLectures",
+    title: "SummarizeLectures - Master Your Lectures in Seconds",
     description: "Turn any lecture video into structured study notes and cheat sheets instantly with AI.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SummarizeLecture.ai - AI-Powered Lecture Summarization",
+        alt: "SummarizeLectures - AI-Powered Lecture Summarization",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SummarizeLecture.ai - Master Your Lectures with AI",
+    title: "SummarizeLectures - Master Your Lectures with AI",
     description: "Turn any lecture video into structured study notes and cheat sheets instantly.",
     images: ["/og-image.png"],
   },
@@ -78,7 +78,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="SummarizeLecture" />
+        <meta name="apple-mobile-web-app-title" content="SummarizeLectures" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className={outfit.className} suppressHydrationWarning>

@@ -281,7 +281,7 @@ export default function Dashboard() {
                     {/* Brand */}
                     <div className="text-center">
                         <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-                            SummarizeLecture.ai
+                            SummarizeLectures
                         </h1>
                         <p className="text-slate-500 mt-2 text-sm tracking-wider uppercase">
                             <span className="inline-block animate-pulse">Loading your workspace</span>
@@ -303,7 +303,7 @@ export default function Dashboard() {
                 <header className="flex justify-between items-center pb-6 border-b border-slate-800">
                     <div className="flex items-center gap-4">
                         <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 hover:opacity-80 transition-opacity">
-                            SummarizeLecture.ai
+                            SummarizeLectures
                         </Link>
                         <span className="text-slate-500">/</span>
                         <span className="font-semibold text-slate-200">Dashboard</span>

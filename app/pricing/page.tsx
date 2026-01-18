@@ -75,7 +75,7 @@ export default function PricingPage() {
             {/* Navbar */}
             <nav className="w-full max-w-7xl mx-auto p-6 flex justify-between items-center bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
                 <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                    SummarizeLecture.ai
+                    SummarizeLectures
                 </Link>
                 <div className="space-x-4 flex items-center">
                     {user ? (

@@ -56,7 +56,7 @@ export default function SharedPage({ params }: { params: Promise<{ id: string }>
                 <h1 className="text-2xl font-bold mb-2">Oops!</h1>
                 <p className="text-slate-400 mb-6">{error}</p>
                 <Link href="/" className="text-purple-400 hover:text-purple-300 underline">
-                    Go to SummarizeLecture.ai →
+                    Go to SummarizeLectures →
                 </Link>
             </main>
         );
@@ -67,7 +67,7 @@ export default function SharedPage({ params }: { params: Promise<{ id: string }>
             {/* Header */}
             <nav className="w-full max-w-5xl mx-auto p-6 flex justify-between items-center">
                 <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                    SummarizeLecture.ai
+                    SummarizeLectures
                 </Link>
                 <span className="text-xs text-slate-500 px-3 py-1 bg-white/5 rounded-full border border-slate-700">
                     Shared Summary
@@ -81,7 +81,7 @@ export default function SharedPage({ params }: { params: Promise<{ id: string }>
                         {summary?.videoTitle || 'Study Guide'}
                     </h1>
                     <p className="text-sm text-slate-500 mb-6">
-                        Shared from SummarizeLecture.ai
+                        Shared from SummarizeLectures
                     </p>
 
                     <div className="prose prose-invert prose-slate max-w-none">
@@ -106,7 +106,7 @@ export default function SharedPage({ params }: { params: Promise<{ id: string }>
                     <p className="text-lg text-white mb-2">Want to create your own study guides?</p>
                     <p className="text-slate-400 text-sm mb-4">Turn any YouTube lecture into notes, flashcards, or quizzes instantly.</p>
                     <Link href="/" className="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white font-semibold hover:from-purple-700 hover:to-pink-700 transition-all">
-                        Try SummarizeLecture.ai Free →
+                        Try SummarizeLectures Free →
                     </Link>
                 </div>
             </div>

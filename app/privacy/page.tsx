@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold text-white">1. Information We Collect</h2>
                         <p className="text-slate-300">
-                            When you use SummarizeLecture.ai, we collect:
+                            When you use SummarizeLectures, we collect:
                         </p>
                         <ul className="list-disc list-inside text-slate-300 space-y-2">
                             <li><strong>Account Information:</strong> Name, email address, and profile picture from your Google account when you sign in.</li>

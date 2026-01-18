@@ -115,7 +115,7 @@ export default function ContactPage() {
                             <div className="mt-8 pt-6 border-t border-slate-800">
                                 <p className="text-sm text-slate-400 text-center">
                                     <Mail className="inline h-4 w-4 mr-1" />
-                                    Or email us directly at: <span className="text-blue-400">support@summarizelecture.ai</span>
+                                    Or email us directly at: <span className="text-blue-400">support@summarizelectures.com</span>
                                 </p>
                             </div>
                         </CardContent>

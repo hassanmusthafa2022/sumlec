@@ -1,6 +1,6 @@
 {
-    "name": "SummarizeLecture.ai",
-    "short_name": "SummarizeAI",
+    "name": "SummarizeLectures",
+    "short_name": "SummarizeLectures",
     "description": "Turn any YouTube video or lecture into study notes, flashcards, and quizzes instantly with AI.",
     "start_url": "/",
     "display": "standalone",

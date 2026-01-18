@@ -22,7 +22,7 @@ export default function TermsPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold text-white">1. Acceptance of Terms</h2>
                         <p className="text-slate-300">
-                            By accessing and using SummarizeLecture.ai, you accept and agree to be bound by these Terms of Service.
+                            By accessing and using SummarizeLectures, you accept and agree to be bound by these Terms of Service.
                             If you do not agree to these terms, please do not use our service.
                         </p>
                     </section>
@@ -30,7 +30,7 @@ export default function TermsPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold text-white">2. Description of Service</h2>
                         <p className="text-slate-300">
-                            SummarizeLecture.ai provides an AI-powered service that generates summaries, notes, and study materials
+                            SummarizeLectures provides an AI-powered service that generates summaries, notes, and study materials
                             from YouTube videos and uploaded media files. The service uses AI-powered analysis for content processing.
                         </p>
                     </section>
@@ -71,7 +71,7 @@ export default function TermsPage() {
                         <h2 className="text-2xl font-semibold text-white">6. Intellectual Property</h2>
                         <p className="text-slate-300">
                             You retain ownership of content you upload. Summaries generated are for your personal educational use.
-                            The SummarizeLecture.ai service, branding, and technology remain our intellectual property.
+                            The SummarizeLectures service, branding, and technology remain our intellectual property.
                         </p>
                     </section>
 
@@ -87,7 +87,7 @@ export default function TermsPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold text-white">8. Limitation of Liability</h2>
                         <p className="text-slate-300">
-                            SummarizeLecture.ai shall not be liable for any indirect, incidental, or consequential damages
+                            SummarizeLectures shall not be liable for any indirect, incidental, or consequential damages
                             arising from your use of the service.
                         </p>
                     </section>
