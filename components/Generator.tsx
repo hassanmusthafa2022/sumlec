@@ -177,10 +177,10 @@ export function Generator({ onGenerate, onError, userPlan }: GeneratorProps) {
             // Save to Firestore from client (has proper auth context)
             try {
                 await saveSummary(user.uid, {
-                    videoId: data.videoId,
-                    videoUrl: data.videoUrl,
-                    videoTitle: data.videoTitle,
-                    summaryContent: data.summary,
+                    videoId: data.videoId || '',
+                    videoUrl: data.videoUrl || '',
+                    videoTitle: data.videoTitle || 'Untitled',
+                    summaryContent: data.summary || '',
                     outputFormat: outputFormat,
                 });
             } catch (saveErr) {
