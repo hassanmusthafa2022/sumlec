@@ -32,8 +32,8 @@ export default function PricingPage() {
         setProcessing(plan);
 
         const planDetails = {
-            pro: { priceId: 'bc92e5ce-b0ac-4637-bbf0-5a3a0c290741', credits: 25 },
-            premium: { priceId: '6af5a05a-2edd-490f-b6a4-da505d759d19', credits: 170 }
+            pro: { priceId: process.env.NEXT_PUBLIC_POLAR_PRO_PRODUCT_ID || '', credits: 25 },
+            premium: { priceId: process.env.NEXT_PUBLIC_POLAR_PREMIUM_PRODUCT_ID || '', credits: 170 }
         };
         const { priceId, credits } = planDetails[plan];
 
