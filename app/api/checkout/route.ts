@@ -32,6 +32,17 @@ export async function POST(request: Request) {
             metadata
         });
 
+        console.log("Polar checkout result:", JSON.stringify(result, null, 2));
+
+        if (!result.url) {
+            console.error("Polar returned no checkout URL. Full response:", result);
+            return NextResponse.json({
+                error: "Payment initiation failed",
+                details: "Polar did not return a checkout URL",
+                polarResponse: result
+            }, { status: 500 });
+        }
+
         return NextResponse.json({ url: result.url });
     } catch (error: any) {
         console.error("Checkout error:", error);
