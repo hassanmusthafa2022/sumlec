@@ -30,6 +30,14 @@ export async function POST(request: Request) {
         return NextResponse.json({ url: result.url });
     } catch (error: any) {
         console.error("Checkout error:", error);
-        return NextResponse.json({ error: "Failed to create checkout session", details: error.message }, { status: 500 });
+        console.error("Error details:", JSON.stringify(error, null, 2));
+
+        // Return more details to help debug
+        const errorMessage = error?.body?.detail || error?.message || "Unknown error";
+        return NextResponse.json({
+            error: "Failed to create checkout session",
+            details: errorMessage,
+            productId: (await request.clone().json()).priceId
+        }, { status: 500 });
     }
 }
