@@ -183,6 +183,42 @@ export default function RootLayout({
           })
         }} />
 
+        {/* JSON-LD: HowTo Schema for Step-by-Step Rich Snippets */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Summarize a YouTube Lecture with AI",
+            "description": "Turn any YouTube lecture into study notes in 3 simple steps using SummarizeLectures AI",
+            "totalTime": "PT2M",
+            "estimatedCost": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "0"
+            },
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Paste YouTube URL",
+                "text": "Copy the YouTube video URL of your lecture and paste it into the input field on SummarizeLectures.com",
+                "position": 1
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Choose Output Format",
+                "text": "Select your preferred format: Summary, Study Notes, Flashcards, Quiz, or Mind Map",
+                "position": 2
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Generate and Download",
+                "text": "Click Generate and wait a few seconds. Download your study materials as PDF or copy to clipboard",
+                "position": 3
+              }
+            ]
+          })
+        }} />
+
         {/* PWA Meta Tags */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9333ea" />
