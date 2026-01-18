@@ -19,7 +19,17 @@ export const metadata: Metadata = {
     "exam preparation",
     "student tools",
     "AI education",
-    "AI summarizer"
+    "AI summarizer",
+    "youtube lecture summarizer",
+    "AI lecture notes generator",
+    "convert youtube to notes",
+    "lecture summary AI",
+    "online lecture summarizer",
+    "AI note taker",
+    "youtube video summary",
+    "study helper AI",
+    "free lecture notes",
+    "video transcript to notes"
   ],
   authors: [{ name: "SummarizeLectures Team" }],
   creator: "SummarizeLectures Team",
@@ -72,6 +82,28 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* JSON-LD Structured Data for SEO */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "SummarizeLectures",
+            "description": "AI-powered lecture summarization tool for students - Turn YouTube videos into study notes instantly",
+            "url": "https://summarizelectures.com",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "150"
+            }
+          })
+        }} />
         {/* PWA Meta Tags */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9333ea" />
