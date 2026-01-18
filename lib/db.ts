@@ -141,13 +141,15 @@ export const getUserProfile = async (uid: string): Promise<UserProfile | null> =
 
 // Save a summary to history
 export const saveSummary = async (uid: string, data: Omit<SummaryData, "id" | "userId" | "createdAt">) => {
+    console.log("[saveSummary] Attempting to save for user:", uid);
     try {
         const summariesRef = collection(db, "users", uid, "summaries");
-        await addDoc(summariesRef, {
+        const docRef = await addDoc(summariesRef, {
             userId: uid,
             ...data,
             createdAt: serverTimestamp(),
         });
+        console.log("[saveSummary] SUCCESS! Doc ID:", docRef.id);
     } catch (e: any) {
         console.error("saveSummary failed:", e);
         if (e.code === 'permission-denied') {
@@ -161,14 +163,21 @@ export const saveSummary = async (uid: string, data: Omit<SummaryData, "id" | "u
 
 // Get user's summary history
 export const getUserSummaries = async (uid: string): Promise<SummaryData[]> => {
-    const summariesRef = collection(db, "users", uid, "summaries");
-    const q = query(summariesRef, orderBy("createdAt", "desc"));
+    console.log("[getUserSummaries] Fetching for user:", uid);
+    try {
+        const summariesRef = collection(db, "users", uid, "summaries");
+        const q = query(summariesRef, orderBy("createdAt", "desc"));
 
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-    } as SummaryData));
+        const querySnapshot = await getDocs(q);
+        console.log("[getUserSummaries] Found", querySnapshot.size, "summaries");
+        return querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        } as SummaryData));
+    } catch (e: any) {
+        console.error("[getUserSummaries] FAILED:", e);
+        return [];
+    }
 };
 
 // Get single summary by ID
