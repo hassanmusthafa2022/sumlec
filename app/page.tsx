@@ -238,16 +238,129 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Removed - Moved to /pricing */}
-
-      {/* Footer */}
-      <footer className="w-full py-8 text-center text-gray-500 text-sm z-10 border-t border-white/10 mt-10">
-        <div className="flex justify-center gap-6 mb-4">
-          <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
-          <a href="/contact" className="hover:text-white transition-colors">Contact</a>
+      {/* SEO Content Section - Adds more words and uses H1 keywords */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-16 z-10">
+        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+            Master Your Lectures with AI-Powered Study Tools
+          </h2>
+          <div className="prose prose-invert max-w-none space-y-4 text-slate-300">
+            <p>
+              <strong>SummarizeLectures</strong> is the ultimate AI-powered study companion designed to help you
+              <strong> master your lectures in seconds</strong>. Whether you&apos;re watching a lengthy YouTube lecture,
+              a recorded university class, or any educational video, our advanced AI technology transforms
+              hours of content into concise, structured study materials instantly.
+            </p>
+            <p>
+              Our intelligent lecture summarizer uses cutting-edge natural language processing to identify
+              key concepts, important definitions, and critical formulas. Unlike traditional note-taking,
+              which can be time-consuming and incomplete, SummarizeLectures ensures you never miss important
+              information. The AI analyzes the entire lecture content and generates comprehensive notes,
+              flashcards, mind maps, and even practice quizzes to test your understanding.
+            </p>
+            <p>
+              Students from universities worldwide trust SummarizeLectures to streamline their study sessions.
+              With support for multiple output formats including PDF downloads and cheat sheets, you can
+              study anywhere, anytime. Our tool integrates seamlessly with{" "}
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                YouTube
+              </a>{" "}
+              and other video platforms, making it effortless to convert any lecture into actionable study notes.
+            </p>
+            <p>
+              Ready to transform your study experience? Start generating your first summary for free today.
+              Check out our{" "}
+              <Link href="/pricing" className="text-purple-400 hover:text-purple-300 underline">
+                pricing plans
+              </Link>{" "}
+              for unlimited access or{" "}
+              <Link href="/contact" className="text-purple-400 hover:text-purple-300 underline">
+                contact us
+              </Link>{" "}
+              if you have any questions.
+            </p>
+          </div>
         </div>
-        <p>© 2026 SummarizeLectures. All rights reserved.</p>
+      </section>
+
+      {/* Social Sharing Section */}
+      <section className="w-full max-w-4xl mx-auto px-6 py-10 z-10">
+        <div className="text-center">
+          <p className="text-slate-400 mb-4">Share SummarizeLectures with your classmates:</p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://twitter.com/intent/tweet?text=Check%20out%20SummarizeLectures%20-%20AI-powered%20lecture%20summarizer!&url=https://summarizelectures.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 border border-[#1DA1F2]/30 rounded-lg text-[#1DA1F2] transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+              <span>Tweet</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/shareArticle?mini=true&url=https://summarizelectures.com&title=SummarizeLectures%20-%20AI%20Lecture%20Summarizer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[#0A66C2]/20 hover:bg-[#0A66C2]/30 border border-[#0A66C2]/30 rounded-lg text-[#0A66C2] transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=https://summarizelectures.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[#1877F2]/20 hover:bg-[#1877F2]/30 border border-[#1877F2]/30 rounded-lg text-[#1877F2] transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer with more internal links */}
+      <footer className="w-full py-12 text-center text-gray-500 text-sm z-10 border-t border-white/10 mt-10">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Footer navigation grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 text-left">
+            <div>
+              <h4 className="text-white font-semibold mb-4">Product</h4>
+              <ul className="space-y-2">
+                <li><Link href="/#generate" className="hover:text-white transition-colors">Generate Notes</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2">
+                <li><Link href="/blog/best-ai-study-tools" className="hover:text-white transition-colors">Best AI Study Tools</Link></li>
+                <li><Link href="/blog/how-to-study-effectively" className="hover:text-white transition-colors">Study Tips</Link></li>
+                <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">YouTube ↗</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2">
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Support</h4>
+              <ul className="space-y-2">
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+                <li><a href="mailto:support@summarizelectures.com" className="hover:text-white transition-colors">Email Support</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="pt-8 border-t border-white/10">
+            <p>© 2026 SummarizeLectures. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </main>
   );

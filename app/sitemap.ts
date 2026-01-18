@@ -11,10 +11,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
+            url: `${baseUrl}/pricing`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
             url: `${baseUrl}/dashboard`,
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 0.8,
+        },
+        // SEO Blog Pages - High priority for ranking
+        {
+            url: `${baseUrl}/blog/best-ai-study-tools`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/blog/how-to-study-effectively`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/privacy`,
