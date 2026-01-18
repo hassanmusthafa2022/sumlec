@@ -82,7 +82,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* JSON-LD Structured Data for SEO */}
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://summarizelectures.com" />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="google-site-verification" content="" />
+        <meta name="msvalidate.01" content="" />
+        <meta name="yandex-verification" content="" />
+        <meta name="format-detection" content="telephone=no" />
+
+        {/* JSON-LD: WebApplication Schema */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -92,6 +101,7 @@ export default function RootLayout({
             "url": "https://summarizelectures.com",
             "applicationCategory": "EducationalApplication",
             "operatingSystem": "Web",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -101,9 +111,74 @@ export default function RootLayout({
               "@type": "AggregateRating",
               "ratingValue": "4.8",
               "ratingCount": "150"
+            },
+            "creator": {
+              "@type": "Organization",
+              "name": "SummarizeLectures",
+              "url": "https://summarizelectures.com"
             }
           })
         }} />
+
+        {/* JSON-LD: Organization Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "SummarizeLectures",
+            "url": "https://summarizelectures.com",
+            "logo": "https://summarizelectures.com/icon-512.png",
+            "sameAs": [],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "support@summarizelectures.com",
+              "contactType": "customer service"
+            }
+          })
+        }} />
+
+        {/* JSON-LD: FAQ Schema for Rich Snippets */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How does SummarizeLectures work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Simply paste a YouTube video URL or upload a lecture file, and our AI will generate comprehensive study notes, summaries, flashcards, or quizzes in seconds."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is SummarizeLectures free to use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! We offer a free tier with limited usage. Pro and Premium plans provide additional credits and features for power users."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What types of videos can I summarize?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You can summarize any YouTube video including lectures, tutorials, podcasts, and educational content. We also support direct file uploads for audio and video files."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How accurate are the AI-generated summaries?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our AI uses Google's Gemini technology to provide highly accurate summaries. The AI understands context, identifies key points, and structures information for easy studying."
+                }
+              }
+            ]
+          })
+        }} />
+
         {/* PWA Meta Tags */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9333ea" />
