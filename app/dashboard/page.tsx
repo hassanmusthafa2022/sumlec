@@ -90,19 +90,26 @@ export default function Dashboard() {
         }
     }, [user, router]); // Run when user is loaded
 
-    // Product IDs from Polar - update these with your actual Polar Product Price IDs
+    // Product IDs from Polar - update these with your actual Polar Product IDs
     const PRODUCT_IDS: Record<string, string> = {
         'pro': process.env.NEXT_PUBLIC_POLAR_PRO_PRODUCT_ID || '',
         'premium': process.env.NEXT_PUBLIC_POLAR_PREMIUM_PRODUCT_ID || '',
-        'credits': process.env.NEXT_PUBLIC_POLAR_CREDITS_PRODUCT_ID || '',
+        'credits_pro': process.env.NEXT_PUBLIC_POLAR_CREDITS_PRO_PRODUCT_ID || '',      // $5 for 40 credits
+        'credits_premium': process.env.NEXT_PUBLIC_POLAR_CREDITS_PREMIUM_PRODUCT_ID || '', // $4 for 40 credits
     };
 
     const handlePurchase = async (planType: string, mode?: 'subscription' | 'credits') => {
         if (!user) return;
 
-        const productId = PRODUCT_IDS[planType];
+        // For credit purchases, pick the right product based on user's current plan
+        let productKey = planType;
+        if (planType === 'credits') {
+            productKey = userPlan === 'premium' ? 'credits_premium' : 'credits_pro';
+        }
+
+        const productId = PRODUCT_IDS[productKey];
         if (!productId) {
-            alert(`Please configure NEXT_PUBLIC_POLAR_${planType.toUpperCase()}_PRODUCT_ID in environment variables`);
+            alert(`Please configure NEXT_PUBLIC_POLAR_${productKey.toUpperCase().replace('_', '_')}_PRODUCT_ID in environment variables`);
             return;
         }
 
@@ -111,7 +118,7 @@ export default function Dashboard() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    priceId: productId, // Polar accepts productId in the products array
+                    priceId: productId,
                     userId: user.uid,
                     credits: planType === 'credits' ? 40 : (planType === 'pro' ? 25 : 50),
                     plan: planType === 'credits' ? undefined : planType
