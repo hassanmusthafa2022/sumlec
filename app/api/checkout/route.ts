@@ -36,8 +36,7 @@ export async function POST(request: Request) {
         const errorMessage = error?.body?.detail || error?.message || "Unknown error";
         return NextResponse.json({
             error: "Failed to create checkout session",
-            details: errorMessage,
-            productId: (await request.clone().json()).priceId
+            details: errorMessage
         }, { status: 500 });
     }
 }
