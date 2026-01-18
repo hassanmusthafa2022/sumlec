@@ -71,10 +71,20 @@ export async function POST(req: NextRequest) {
             case "order.created": {
                 const userId = data.metadata?.userId;
                 const credits = parseInt(data.metadata?.credits || "0");
+                const plan = data.metadata?.plan as 'free' | 'pro' | 'premium' | undefined;
 
-                if (userId && credits > 0 && !data.subscription_id) {
-                    console.log(`Adding ${credits} credits to user ${userId}`);
-                    await addCredits(userId, credits);
+                if (userId && !data.subscription_id) {
+                    // Update plan if specified
+                    if (plan && plan !== 'free') {
+                        console.log(`Updating user ${userId} to plan ${plan}`);
+                        await updateUserPlan(userId, plan);
+                    }
+
+                    // Add credits if specified
+                    if (credits > 0) {
+                        console.log(`Adding ${credits} credits to user ${userId}`);
+                        await addCredits(userId, credits);
+                    }
                 }
                 break;
             }
