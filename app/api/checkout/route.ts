@@ -17,14 +17,19 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Price ID is required" }, { status: 400 });
         }
 
+        // Build metadata without undefined values (Polar rejects them)
+        const metadata: Record<string, string> = {
+            userId: userId || '',
+            credits: credits?.toString() || '0',
+        };
+        if (plan) {
+            metadata.plan = plan;
+        }
+
         const result = await polar.checkouts.create({
             products: [priceId],
             successUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-            metadata: {
-                userId,
-                credits: credits?.toString(),
-                plan
-            }
+            metadata
         });
 
         return NextResponse.json({ url: result.url });
