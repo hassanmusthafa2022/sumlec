@@ -90,32 +90,39 @@ export default function Dashboard() {
         }
     }, [user, router]); // Run when user is loaded
 
+    // Price IDs from Polar - update these with your actual Polar Product Price IDs
+    const PRICE_IDS: Record<string, string> = {
+        'pro': process.env.NEXT_PUBLIC_POLAR_PRO_PRICE_ID || '',
+        'premium': process.env.NEXT_PUBLIC_POLAR_PREMIUM_PRICE_ID || '',
+        'credits': process.env.NEXT_PUBLIC_POLAR_CREDITS_PRICE_ID || '',
+    };
+
     const handlePurchase = async (planType: string, mode?: 'subscription' | 'credits') => {
         if (!user) return;
+
+        const priceId = PRICE_IDS[planType];
+        if (!priceId) {
+            alert(`Please configure NEXT_PUBLIC_POLAR_${planType.toUpperCase()}_PRICE_ID in environment variables`);
+            return;
+        }
+
         try {
             const res = await fetch("/api/checkout", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    planType,
+                    priceId,
                     userId: user.uid,
-                    mode: mode || 'subscription'
+                    credits: planType === 'credits' ? 40 : (planType === 'pro' ? 25 : 50),
+                    plan: planType === 'credits' ? undefined : planType
                 }),
             });
             const data = await res.json();
             if (data.url) {
                 window.location.href = data.url;
             } else {
-                // Mock Fallback for Dev
-                if (confirm(`Stripe not configured. Mock Top-up (40 Credits)?`)) {
-                    const { addCredits } = await import("@/lib/db");
-                    // Mock delay
-                    await new Promise(r => setTimeout(r, 1000));
-
-                    await addCredits(user.uid, 40);
-                    alert("Mock Success! 40 Credits added.");
-                    fetchUserData(); // Refresh UI
-                }
+                console.error("Checkout error:", data.error);
+                alert(`Checkout failed: ${data.error || 'Unknown error'}`);
             }
         } catch (err) {
             console.error(err);
